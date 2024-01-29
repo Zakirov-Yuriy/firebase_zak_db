@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/colors.dart';
 
+// Виджет AddTouristWidget представляет собой элемент для добавления туристов.
 class AddTouristWidget extends StatefulWidget {
   final String title;
   const AddTouristWidget({Key? key, required this.title}) : super(key: key);
@@ -13,14 +14,15 @@ class AddTouristWidget extends StatefulWidget {
 
 class _AddTouristWidgetState extends State<AddTouristWidget> {
   bool _isExpanded = false;
-  List<TouristtWidget> tourists = [];
+  List<TouristtWidget> tourists = []; // Список туристов
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        color: Colors.white, // Цвет фона контейнера
+        borderRadius:
+            BorderRadius.all(Radius.circular(12.0)), // Скругление углов
       ),
       child: Column(
         children: [
@@ -29,10 +31,11 @@ class _AddTouristWidgetState extends State<AddTouristWidget> {
             child: InkWell(
               onTap: () {
                 setState(() {
-                  _isExpanded = !_isExpanded;
+                  _isExpanded = !_isExpanded; // Изменение состояния раскрытия
                   if (_isExpanded) {
-                    tourists.add(
-                        TouristtWidget(title: 'Турист ${tourists.length + 3}'));
+                    tourists.add(TouristtWidget(
+                        title:
+                            'Турист ${tourists.length + 3}')); // Добавление нового туриста при раскрытии
                   }
                 });
               },
@@ -44,7 +47,7 @@ class _AddTouristWidgetState extends State<AddTouristWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.title,
+                        widget.title, // Заголовок
                         style: TextStyle(
                           fontSize: 22,
                           fontFamily: 'SFProDisplay',
@@ -58,7 +61,10 @@ class _AddTouristWidgetState extends State<AddTouristWidget> {
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Icon(
-                          _isExpanded ? Icons.add : Icons.add,
+                          _isExpanded
+                              ? Icons.remove
+                              : Icons
+                                  .add, // Иконка для показа состояния раскрытия
                           color: Colors.white,
                         ),
                       ),
@@ -68,13 +74,14 @@ class _AddTouristWidgetState extends State<AddTouristWidget> {
               ),
             ),
           ),
-          if (_isExpanded)
+          if (_isExpanded) // Если раскрыто, показать список туристов
             Padding(
               padding: EdgeInsets.only(right: 16, left: 16, top: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var tourist in tourists) tourist,
+                  for (var tourist in tourists)
+                    tourist, // Показать каждого туриста в списке
                 ],
               ),
             ),

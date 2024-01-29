@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_zak_db/utils/colors.dart';
 
+// Класс AccordionWidget представляет собой виджет аккордеона, который может быть
+// расширен или свернут при нажатии на заголовок.
 class AccordionWidget extends StatefulWidget {
-  final String title;
-  final String subheading;
-  final Widget child;
-  final Widget icon;
+  final String title; // Заголовок аккордеона
+  final String subheading; // Подзаголовок аккордеона
+  final Widget child; // Содержимое аккордеона
+  final Widget icon; // Иконка, отображаемая рядом с заголовком
 
   AccordionWidget({
     required this.title,
@@ -19,7 +21,7 @@ class AccordionWidget extends StatefulWidget {
 }
 
 class _AccordionWidgetState extends State<AccordionWidget> {
-  bool _isExpanded = false;
+  bool _isExpanded = false; // Флаг для отслеживания расширения аккордеона
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _AccordionWidgetState extends State<AccordionWidget> {
         GestureDetector(
           onTap: () {
             setState(() {
-              _isExpanded = !_isExpanded;
+              _isExpanded = !_isExpanded; // Переключение состояния расширения
             });
           },
           child: Padding(
@@ -37,14 +39,14 @@ class _AccordionWidgetState extends State<AccordionWidget> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: AppColors.lightGrayColor,
+                color: AppColors.lightGrayColor, // Цвет фона заголовка
               ),
-              padding:
-                  EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 10),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 15, bottom: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  widget.icon,
+                  widget.icon, // Иконка рядом с заголовком
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
@@ -52,23 +54,23 @@ class _AccordionWidgetState extends State<AccordionWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.title,
-                            style: TextStyle(
+                            widget.title, // Заголовок аккордеона
+                            style: const TextStyle(
                               fontSize: 16,
                               fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           Text(
-                            widget.subheading,
-                            style: TextStyle(
+                            widget.subheading, // Подзаголовок аккордеона
+                            style: const TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
                               fontFamily: 'SFProDisplay',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Divider()
+                          const Divider() // Разделитель под заголовком и подзаголовком
                         ],
                       ),
                     ),
@@ -77,7 +79,7 @@ class _AccordionWidgetState extends State<AccordionWidget> {
                     _isExpanded
                         ? Icons.keyboard_arrow_down
                         : Icons
-                            .keyboard_arrow_right, // Change the icon based on the state
+                            .keyboard_arrow_right, // Иконка, указывающая состояние расширения
                   ),
                 ],
               ),
@@ -86,38 +88,10 @@ class _AccordionWidgetState extends State<AccordionWidget> {
         ),
         if (_isExpanded)
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: widget.child,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: widget.child, // Содержимое аккордеона
           ),
       ],
-    );
-  }
-}
-
-// Example usage:
-class MyAccordionPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Accordion Example'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: AccordionWidget(
-          title: 'Accordion Title',
-          subheading: 'text',
-          icon: Icon(Icons.sentiment_satisfied_alt),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('Accordion Content 1'),
-              Text('Accordion Content 2'),
-              Text('Accordion Content 3'),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

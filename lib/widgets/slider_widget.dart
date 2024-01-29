@@ -8,8 +8,10 @@ class SliderWidget extends StatefulWidget {
 }
 
 class _SliderWidgetState extends State<SliderWidget> {
+  // Контроллер страниц
   PageController _pageController = PageController();
 
+  // Текущая страница
   int _currentPage = 0;
 
   // Список URL-адресов изображений
@@ -23,16 +25,16 @@ class _SliderWidgetState extends State<SliderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 16),
       height: 273,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: PageView.builder(
-          controller: _pageController,
+          controller: _pageController, // Устанавливаем контроллер страниц
           itemCount: imageUrls.length,
           onPageChanged: (int page) {
             setState(() {
-              _currentPage = page;
+              _currentPage = page; // Обновляем текущую страницу при изменении
             });
           },
           itemBuilder: (context, index) {
@@ -53,7 +55,7 @@ class _SliderWidgetState extends State<SliderWidget> {
                     ),
                   ),
 
-                  // Контроллеры
+                  // Контроллеры для отображения текущей страницы
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -62,13 +64,14 @@ class _SliderWidgetState extends State<SliderWidget> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       width: 75,
-                      margin: EdgeInsets.only(bottom: 8.0),
+                      margin: const EdgeInsets.only(bottom: 8.0),
                       height: 17,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(
                           4,
                           (controllerIndex) {
+                            // Цвет контроллера зависит от текущей страницы
                             Color? controllerColor = _currentPage ==
                                     controllerIndex
                                 ? Colors.black
@@ -101,7 +104,7 @@ class _SliderWidgetState extends State<SliderWidget> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController.dispose(); // Освобождаем ресурсы контроллера
     super.dispose();
   }
 }

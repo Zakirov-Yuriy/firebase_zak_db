@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_zak_db/utils/colors.dart';
 
+// Виджет FlightInfoWidget используется для отображения информации о рейсе.
 class FlightInfoWidget extends StatefulWidget {
-  final String departureTitle;
-  final String departureValue;
+  final String departureTitle; // Заголовок информации о вылете
+  final String departureValue; // Значение информации о вылете
 
   const FlightInfoWidget({
     required this.departureTitle,
@@ -34,7 +35,7 @@ class _FlightInfoWidgetState extends State<FlightInfoWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.departureTitle,
+                      widget.departureTitle, // Заголовок информации о вылете
                       style: const TextStyle(
                         color: AppColors.greyColor,
                         fontFamily: 'SFProDisplay',
@@ -54,7 +55,7 @@ class _FlightInfoWidgetState extends State<FlightInfoWidget> {
                         CrossAxisAlignment.start, // Выравнивание по левому краю
                     children: [
                       Text(
-                        widget.departureValue,
+                        widget.departureValue, // Значение информации о вылете
                         style: const TextStyle(
                           fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w400,

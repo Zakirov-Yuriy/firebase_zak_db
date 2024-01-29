@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
 
+// Виджет CustomRowTextWidget представляет собой две строки с текстовыми элементами,
+// которые отображаются в виде контейнеров с фоновым цветом.
 class CustomRowTextWidget extends StatelessWidget {
-  final List<String> firstRowTexts;
-  final List<String> secondRowTexts;
+  final List<String> firstRowTexts; // Список текстов для первой строки
+  final List<String> secondRowTexts; // Список текстов для второй строки
 
   const CustomRowTextWidget({
     Key? key,
@@ -28,14 +30,15 @@ class CustomRowTextWidget extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                        color: AppColors.lightGrayColor,
+                        color:
+                            AppColors.lightGrayColor, // Фоновый цвет контейнера
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Text(
                         text,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
-                          color: AppColors.greyColor,
+                          color: AppColors.greyColor, // Цвет текста
                           fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w500,
                         ),
@@ -56,14 +59,15 @@ class CustomRowTextWidget extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                        color: AppColors.lightGrayColor,
+                        color:
+                            AppColors.lightGrayColor, // Фоновый цвет контейнера
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Text(
                         text,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
-                          color: AppColors.greyColor,
+                          color: AppColors.greyColor, // Цвет текста
                           fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w500,
                         ),
