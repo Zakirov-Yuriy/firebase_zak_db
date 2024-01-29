@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "370796525389",
+    "project_id": "zak-db",
+    "storage_bucket": "zak-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370796525389:android:ccaf255de3fee3bce7a904",
+        "android_client_info": {
+          "package_name": "com.example.firebase_zak_db"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-PIH46zdHaDfXRo1iz0IILviMZyT1au0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
