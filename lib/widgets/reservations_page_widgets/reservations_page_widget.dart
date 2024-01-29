@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import '../screens/order_paid_page.dart';
-import '../utils/colors.dart';
+import '../../screens/order_paid_page.dart';
+import '../../utils/colors.dart';
 import 'add_tourist_widget.dart';
-import 'custom_button_widget.dart';
+import '../custom_button_widget.dart';
 import 'flight_info_widget.dart';
 import 'tour_row_widget.dart';
 import 'tourist_wudget.dart';
+import 'custom_text_field_widget.dart';
+import 'custom_textfield_container_widgets.dart';
 
 class ReservationPageWidget extends StatelessWidget {
   const ReservationPageWidget({super.key});
@@ -32,67 +34,13 @@ class ReservationPageWidget extends StatelessWidget {
                     topRight: Radius.circular(12.0),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Container(
-                          width: 149,
-                          height: 29,
-                          decoration: BoxDecoration(
-                            color: AppColors.secondaryColor,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: const Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(right: 2, left: 5),
-                                child: Icon(
-                                  Icons.star,
-                                  color: AppColors.primaryColor,
-                                ),
-                              ),
-                              Text(
-                                '5 Превосходно',
-                                style: TextStyle(
-                                  color: AppColors.primaryColor,
-                                  fontFamily: 'SFProDisplay',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 8),
-                        child: Text(
-                          'Steigenberger Makadi',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 16),
-                        child: Text(
-                          'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.blueColor,
-                            fontFamily: 'SFProDisplay',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16, right: 16),
+                  child: CustomTextFieldWidget(
+                    titleText: '5 Превосходно',
+                    subtitleText: 'Steigenberger Makadi',
+                    descriptionText:
+                        'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
                   ),
                 ),
               ),
@@ -166,13 +114,12 @@ class ReservationPageWidget extends StatelessWidget {
                         topRight: Radius.circular(12.0),
                       ),
                     ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(right: 16, left: 16, top: 16),
+                    child: const Padding(
+                      padding: EdgeInsets.only(right: 16, left: 16, top: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'Информация о покупателе',
                             style: TextStyle(
                               fontSize: 22,
@@ -180,52 +127,15 @@ class ReservationPageWidget extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(height: 16),
-                          Container(
-                            height: 52,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                labelText: 'Телефон',
-                                hintText: 'Введите номер телефона',
-                                hintStyle: const TextStyle(
-                                    color: AppColors.labelStyleColor),
-                                labelStyle: const TextStyle(
-                                    color: AppColors
-                                        .labelStyleColor), // Цвет подсказки
-                                filled: true,
-                                fillColor: Colors.grey[200],
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide.none,
-                                ),
-                              ),
-                            ),
+                          SizedBox(height: 16),
+                          CustomTextFieldContainer(
+                            labelText1: 'Телефон',
+                            hintText1: 'Введите номер телефона',
+                            labelText2: 'Электронная почта',
+                            hintText2: 'Введите адрес электронной почты',
                           ),
-                          const SizedBox(height: 16),
-                          Container(
-                            height: 52,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                labelText: 'Электронная почта',
-
-                                hintText: 'Введите адрес электронной почты',
-                                hintStyle: const TextStyle(
-                                    color: AppColors.labelStyleColor),
-                                labelStyle: const TextStyle(
-                                    color: AppColors
-                                        .labelStyleColor), // Цвет подсказки
-                                filled: true,
-                                fillColor: Colors.grey[200],
-
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide.none,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          const Text(
+                          SizedBox(height: 8),
+                          Text(
                             'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
                             style: TextStyle(
                                 fontSize: 13,
@@ -233,7 +143,7 @@ class ReservationPageWidget extends StatelessWidget {
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.greyColor),
                           ),
-                          const SizedBox(height: 16),
+                          SizedBox(height: 16),
                         ],
                       ),
                     ),
@@ -314,9 +224,9 @@ class ReservationPageWidget extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(12.0),
                       topRight: Radius.circular(12.0),
                     ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../widgets/accordion_widget.dart';
+import '../widgets/hotel_page_widgets/accordion_widget.dart';
 import '../widgets/custom_button_widget.dart';
+import '../widgets/hotel_page_widgets/custom_text_widget.dart';
+import '../widgets/reservations_page_widgets/custom_text_field_widget.dart';
 import '../widgets/slider_widget.dart';
 import 'hotel_room_page.dart';
 
@@ -40,67 +42,19 @@ class HotelPage extends StatelessWidget {
                         bottomRight: Radius.circular(12.0),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 16, right: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SliderWidget(),
+                          SliderWidget(),
+                          CustomTextFieldWidget(
+                            titleText: '5 Превосходно',
+                            subtitleText: 'Steigenberger Makadi',
+                            descriptionText:
+                                'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
+                          ),
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Container(
-                              width: 149,
-                              height: 29,
-                              decoration: BoxDecoration(
-                                color: AppColors.secondaryColor,
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: const Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(right: 2, left: 5),
-                                    child: Icon(
-                                      Icons.star,
-                                      color: AppColors.primaryColor,
-                                    ),
-                                  ),
-                                  Text(
-                                    '5 Превосходно',
-                                    style: TextStyle(
-                                      color: AppColors.primaryColor,
-                                      fontFamily: 'SFProDisplay',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              'Steigenberger Makadi',
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontFamily: 'SFProDisplay',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 16),
-                            child: Text(
-                              'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: AppColors.blueColor,
-                                fontFamily: 'SFProDisplay',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          const Padding(
                             padding: EdgeInsets.only(bottom: 16),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -161,102 +115,9 @@ class HotelPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10, vertical: 5),
-                                      decoration: BoxDecoration(
-                                          color: AppColors.lightGrayColor,
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      child: const Text(
-                                        '3-я линия',
-                                        style: TextStyle(
-                                          // backgroundColor: AppColors.lightGrayColor,
-                                          fontSize: 16,
-                                          color: AppColors.greyColor,
-                                          fontFamily: 'SFProDisplay',
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 5),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.lightGrayColor,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: const Text(
-                                      'Платный Wi-Fi в фойе',
-                                      style: TextStyle(
-                                        // backgroundColor: AppColors.lightGrayColor,
-                                        fontSize: 16,
-                                        color: AppColors.greyColor,
-                                        fontFamily: 'SFProDisplay',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12),
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10, vertical: 5),
-                                      decoration: BoxDecoration(
-                                          color: AppColors.lightGrayColor,
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      child: const Text(
-                                        '30 км до аэропорта',
-                                        style: TextStyle(
-                                          // backgroundColor: AppColors.lightGrayColor,
-                                          fontSize: 16,
-                                          color: AppColors.greyColor,
-                                          fontFamily: 'SFProDisplay',
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 5),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.lightGrayColor,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: const Text(
-                                      '1 км до пляжа',
-                                      style: TextStyle(
-                                        // backgroundColor: AppColors.lightGrayColor,
-                                        fontSize: 16,
-                                        color: AppColors.greyColor,
-                                        fontFamily: 'SFProDisplay',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      const CustomRowTextWidget(
+                        firstRowTexts: ['3-я линия', 'Платный Wi-Fi в фойе'],
+                        secondRowTexts: ['30 км до аэропорта', '1 км до пляжа'],
                       ),
                       const Padding(
                         padding:
@@ -301,9 +162,9 @@ class HotelPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 12),
                   child: Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12.0),
                         topRight: Radius.circular(12.0),
                       ),

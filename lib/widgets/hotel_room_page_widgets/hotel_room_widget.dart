@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../screens/reservations_page.dart';
-import '../utils/colors.dart';
+import '../../screens/reservations_page.dart';
+import '../../utils/colors.dart';
 import 'accordion_mini_widget.dart';
-import 'custom_button_widget.dart';
-import 'slider_widget.dart';
+import '../custom_button_widget.dart';
+import '../slider_widget.dart';
 
 class HotelRoomWidget extends StatelessWidget {
   const HotelRoomWidget({super.key});
