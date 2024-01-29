@@ -10,7 +10,7 @@ class TouristtWidget extends StatefulWidget {
 }
 
 class _TouristtWidgetState extends State<TouristtWidget> {
-  bool _isExpanded = false; // Флаг для определения раскрытия виджета
+  bool _isExpanded = false; // Флаг для определения, развернут ли виджет
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,14 @@ class _TouristtWidgetState extends State<TouristtWidget> {
       ),
       child: Column(
         children: [
+          // Верхняя часть виджета с возможностью разворачивания/сворачивания
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: InkWell(
               onTap: () {
                 setState(() {
                   _isExpanded =
-                      !_isExpanded; // Изменяем состояние флага при нажатии
+                      !_isExpanded; // Изменяем состояние развернутости виджета
                 });
               },
               child: Container(
@@ -37,14 +38,16 @@ class _TouristtWidgetState extends State<TouristtWidget> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // Заголовок виджета
                       Text(
-                        widget.title, // Отображаем заголовок виджета
+                        widget.title,
                         style: const TextStyle(
                           fontSize: 22,
                           fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                      // Иконка для сворачивания/разворачивания виджета
                       Container(
                         padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
@@ -52,10 +55,7 @@ class _TouristtWidgetState extends State<TouristtWidget> {
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Icon(
-                          _isExpanded
-                              ? Icons.expand_less
-                              : Icons
-                                  .expand_more, // Иконка для сворачивания/раскрытия виджета
+                          _isExpanded ? Icons.expand_less : Icons.expand_more,
                           color: AppColors.blueColor,
                         ),
                       ),
@@ -65,15 +65,17 @@ class _TouristtWidgetState extends State<TouristtWidget> {
               ),
             ),
           ),
-          if (_isExpanded) // Если виджет раскрыт, отображаем дополнительные поля
+          // Развернутая часть виджета с полями для ввода информации о туристе
+          if (_isExpanded)
             Padding(
               padding: const EdgeInsets.only(right: 16, left: 16, top: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Поля для ввода информации о туристе
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Имя', // Поле ввода для имени туриста
+                      labelText: 'Имя',
                       hintText: 'Введите имя',
                       hintStyle:
                           const TextStyle(color: AppColors.labelStyleColor),
@@ -87,8 +89,93 @@ class _TouristtWidgetState extends State<TouristtWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16), // Промежуток между полями
-                  // Аналогично остальные поля для ввода информации о туристе
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Фамилия',
+                      hintText: 'Введите фамилию',
+                      hintStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      labelStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Дата рождения',
+                      hintText: 'Введите дату рождения',
+                      hintStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      labelStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                    keyboardType: TextInputType.datetime,
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Гражданство',
+                      hintText: 'Введите гражданство',
+                      hintStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      labelStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Номер загранпаспорта',
+                      hintText: 'Введите номер загранпаспорта',
+                      hintStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      labelStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Срок действия загранпаспорта',
+                      hintText: 'Введите срок действия загранпаспорта',
+                      hintStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      labelStyle:
+                          const TextStyle(color: AppColors.labelStyleColor),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
